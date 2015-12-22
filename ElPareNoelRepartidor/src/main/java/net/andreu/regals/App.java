@@ -12,7 +12,7 @@ import java.util.List;
  *
  */
 public class App {
-	private String arxiu = "src/main/resources/llista2.txt";
+	private String arxiu = "src/main/resources/llista.txt";
 	private ArrayList<String> regals = new ArrayList<String>();
 	private List<String> stock;
 
