@@ -30,7 +30,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>net.andreu.App</mainClass>
+							<mainClass>net.andreu.regals.App</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

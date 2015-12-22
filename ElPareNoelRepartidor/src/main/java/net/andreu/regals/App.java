@@ -26,33 +26,7 @@ public class App {
 		procesaFitxer();
 		triaNens();
 	}
-	public void triaNens() {
-		String[] nen;
-		String[] desitjos;
-		for(int i=0; i<regals.size(); i++){
-			nen=regals.get(i).split(":");
-			desitjos=nen[1].split(",");
-			if(comparaRegals(desitjos)== true){
-				System.out.println(nen[0]);
-			}
-		}
-	}
-	public boolean comparaRegals(String[] desitjos) {
-		boolean hiSon=true; 
-		for(int i=0; i<desitjos.length; i++){
-			if(!stock.contains(desitjos[i].trim())){
-				hiSon=false;
-			}
-		}
-		return hiSon;
-	}
-	public void procesaFitxer() {
-		String s=regals.get(regals.size()-1);
-		stock = Arrays.asList(s.split(","));
-		//System.out.println(stock);
-		regals.remove(regals.size()-1);
-		
-	}
+	
 	public void llegirFitxer() {
 		BufferedReader br = null;
 
@@ -74,5 +48,36 @@ public class App {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public void procesaFitxer() {
+		//agafem la ultima linia del fitxer i el desem en un array list diferent
+		String s=regals.get(regals.size()-1);
+		stock = Arrays.asList(s.split(","));
+		//eliminem la ultima linea del array principal
+		regals.remove(regals.size()-1);	
+	}
+	
+	public void triaNens() {
+		String[] nen;
+		String[] desitjos;
+		//separem el nen dels regals
+		for(int i=0; i<regals.size(); i++){
+			nen=regals.get(i).split(":");
+			desitjos=nen[1].split(",");
+			if(comparaRegals(desitjos)== true){
+				System.out.println(nen[0]);
+			}
+		}
+	}
+	public boolean comparaRegals(String[] desitjos) {
+		boolean hiSon=true;
+		//per a cada nen comprovem que els regals que vol els tenim en stock
+		for(int i=0; i<desitjos.length; i++){
+			if(!stock.contains(desitjos[i].trim())){
+				hiSon=false;
+			}
+		}
+		return hiSon;
 	}
 }
